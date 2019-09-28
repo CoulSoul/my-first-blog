@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h3 style="text-align: center; color:teal;">LES TECHNOLOGIES UTILISEES PAR NaN</h3>
+<div class="row" style="background-color: #def9f1">
+{% for project in projects %}
+    <div class="col-md-4" >
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static 'img/project1.png' %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary" style="background-color: teal">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
